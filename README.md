@@ -1,7 +1,9 @@
 # IO-I42-Delta-Build
 
-145434
-145364
+145434 <br>
+145364 <br>
+145339 <br>
+145227
 
 ## Struktura danych
 - Lokacja to budynek, poziom, lub pomieszczenie
@@ -26,4 +28,3 @@ https://docs.google.com/spreadsheets/d/1pZ-B2MpCBHDEh_S5Whab80sGkqp82rMctGOHGQjL
 ### DoD
 
 https://docs.google.com/spreadsheets/d/e/2PACX-1vTn6j3M8pmGEzrsQk8mXse7lVHUdhYWkfxbkQiYI23rBtwM4N3bWw0qtupW-gesfCkcYasnZ-eEXl-F/pubhtml
->>>>>>> 06c82a229a09091ce5399fc6f5400dbf7f9bd6e9
