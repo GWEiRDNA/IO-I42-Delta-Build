@@ -1,16 +1,29 @@
 # IO-I42-Delta-Build
 
-### Struktura danych:
+145434
+145364
 
+## Struktura danych
 - Lokacja to budynek, poziom, lub pomieszczenie
 - Budynek może składać się z poziomów a te z pomieszczeń
 - Każda lokalizacja jest charakteryzowana przez:
   - id – unikalny identyfikator
   - name – opcjonalna nazwa lokalizacji
 - Pomieszczenie dodatkowo jest charakteryzowane przez:
-   - area = powierzchnia w m^2
-   - cube = kubatura pomieszczenia w m^3
-   - heating = poziom zużycia energii ogrzewania (float)
-   - light – łączna moc oświetlenia
+  - area – powierzchnia w m^2
+  - cube – kubatura pomieszczenia w m^3
+  - eating – poziom zużycia energii ogrzewania (float)
+  - light – łączna moc oświetlenia
 
-### [Building info shared spreadsheet](https://docs.google.com/spreadsheets/d/1pZ-B2MpCBHDEh_S5Whab80sGkqp82rMctGOHGQjL3wQ/edit?usp=sharing)
+
+
+## Links
+
+### Building info shared speradsheet
+
+https://docs.google.com/spreadsheets/d/1pZ-B2MpCBHDEh_S5Whab80sGkqp82rMctGOHGQjL3wQ/edit?usp=sharing
+
+### DoD
+
+https://docs.google.com/spreadsheets/d/e/2PACX-1vTn6j3M8pmGEzrsQk8mXse7lVHUdhYWkfxbkQiYI23rBtwM4N3bWw0qtupW-gesfCkcYasnZ-eEXl-F/pubhtml
+>>>>>>> 06c82a229a09091ce5399fc6f5400dbf7f9bd6e9
