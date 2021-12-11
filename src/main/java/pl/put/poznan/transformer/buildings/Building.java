@@ -15,8 +15,35 @@ public class Building extends Location {
             }
         }
     }
-    Building(int id, Storey storey) {
+    Building(int id) {
         super.id = id;
-        this.add(storey);
+    }
+    public int getArea() {
+        int total = 0;
+        for (Storey storey : storeys) {
+            total += storey.getArea();
+        }
+        return total;
+    }
+    public int getCapacity() {
+        int total = 0;
+        for (Storey storey : storeys) {
+            total += storey.getCapacity();
+        }
+        return total;
+    }
+    public int getLight() {
+        int total = 0;
+        for (Storey storey : storeys) {
+            total += storey.getLight();
+        }
+        return total;
+    }
+    public float getEating() {
+        float total = 0;
+        for (Storey storey : storeys) {
+            total += storey.getEating();
+        }
+        return total;
     }
 }

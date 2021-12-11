@@ -4,10 +4,16 @@ abstract public class Location {
     int     id;
     String  name;
 
-    public int getId() {
-        return id;
+    public void setName(String name) {
+        this.name = name;
     }
     public String getName() {
         return name;
     }
+    abstract public void remove(int id);
+
+    abstract public int     getArea();
+    abstract public int     getCapacity();
+    abstract public int     getLight();
+    abstract public float   getEating();
 }

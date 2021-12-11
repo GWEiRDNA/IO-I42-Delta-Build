@@ -4,6 +4,7 @@ import java.util.Vector;
 
 public class Storey extends Location {
     private Vector<Room> rooms = new Vector<Room>();
+
     public void add(Room room) {
         rooms.add(room);
     }
@@ -13,5 +14,36 @@ public class Storey extends Location {
                 rooms.removeElementAt(i);
             }
         }
+    }
+    public Storey(int id) {
+        super.id = id;
+    }
+    public int getArea() {
+        int total = 0;
+        for (Room room : rooms) {
+            total += room.getArea();
+        }
+        return total;
+    }
+    public int getCapacity() {
+        int total = 0;
+        for (Room room : rooms) {
+            total += room.getCapacity();
+        }
+        return total;
+    }
+    public int getLight() {
+        int total = 0;
+        for (Room room : rooms) {
+            total += room.getLight();
+        }
+        return total;
+    }
+    public float getEating() {
+        float total = 0;
+        for (Room room : rooms) {
+            total += room.getEating();
+        }
+        return total;
     }
 }
