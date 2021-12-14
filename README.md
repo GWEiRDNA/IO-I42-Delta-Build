@@ -14,7 +14,7 @@
 - Pomieszczenie dodatkowo jest charakteryzowane przez:
   - area – powierzchnia w m^2
   - cube – kubatura pomieszczenia w m^3
-  - eating – poziom zużycia energii ogrzewania (float)
+  - heating – poziom zużycia energii ogrzewania (float)
   - light – łączna moc oświetlenia
 
 
