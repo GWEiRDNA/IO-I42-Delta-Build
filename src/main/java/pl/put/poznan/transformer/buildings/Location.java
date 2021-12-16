@@ -16,4 +16,9 @@ abstract public class Location {
     abstract public int     getCapacity();
     abstract public int     getLight();
     abstract public float   getEating();
+
+    public String toString()
+    {
+        return id + "(" + name + ") {" + "area:" + getArea() + " capacity:" + getCapacity() + " light:" + getLight() + " eating:" + getEating() + "}";
+    }
 }
