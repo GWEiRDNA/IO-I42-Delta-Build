@@ -32,6 +32,6 @@ public class TextTransformerApplication {
         CompoundLocation compound = new CompoundLocation();
         compound.add(storey1);
 
-        System.out.println(compound.getArea());
+        SpringApplication.run(TextTransformerApplication.class, args);
     }
 }
