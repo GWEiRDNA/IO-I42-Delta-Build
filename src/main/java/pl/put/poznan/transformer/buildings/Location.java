@@ -1,5 +1,7 @@
 package pl.put.poznan.transformer.buildings;
 
+import java.util.Vector;
+
 abstract public class Location {
     int     id;
     String  name;
@@ -17,6 +19,7 @@ abstract public class Location {
     abstract public int     getLight();
     abstract public float   getEating();
 
+    abstract public Vector<Integer> getLeafIDs();
     public String toString()
     {
         return id + "(" + name + ") {" + "area:" + getArea() + " capacity:" + getCapacity() + " light:" + getLight() + " eating:" + getEating() + "}";

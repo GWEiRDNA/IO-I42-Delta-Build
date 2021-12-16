@@ -2,11 +2,11 @@ package pl.put.poznan.transformer.buildings;
 
 import java.util.Vector;
 
-public class Storey extends Location {
+public class Storey extends CompositeLocation {
     private Vector<Room> rooms = new Vector<Room>();
 
-    public void add(Room room) {
-        rooms.add(room);
+    public void add(Location room) {
+        rooms.add((Room)room);
     }
     public void remove(int id) {
         for (int i = 0; i < rooms.size(); i++) {
@@ -15,6 +15,24 @@ public class Storey extends Location {
             }
         }
     }
+
+    public Location at(int id) {
+        for (Room room: rooms) {
+            if (room.id == id) {
+                return room;
+            }
+        }
+        return null;
+    }
+
+    public Vector<Integer> getLeafIDs() {
+        Vector<Integer> vec = new Vector<Integer>();
+        for (Room loc: rooms) {
+            vec.add(loc.id);
+        }
+        return vec;
+    }
+
     public Storey(int id) {
         super.id = id;
     }

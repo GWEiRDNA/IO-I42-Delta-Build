@@ -2,7 +2,7 @@ package pl.put.poznan.transformer.buildings;
 
 import java.util.Vector;
 
-public class CompoundLocation extends Location {
+public class CompoundLocation extends CompositeLocation {
     // private int nextId = 0;
     private Vector<Location> locations = new Vector<>();
 
@@ -19,6 +19,22 @@ public class CompoundLocation extends Location {
             }
         }
     }
+    public Location at(int id) {
+        for (Location loc: locations) {
+            if (loc.id == id) {
+                return loc;
+            }
+        }
+        return null;
+    }
+    public Vector<Integer> getLeafIDs() {
+        Vector<Integer> vec = new Vector<Integer>();
+        for (Location loc: locations) {
+            vec.addAll(loc.getLeafIDs());
+        }
+        return vec;
+    }
+
     public int getArea() {
         int total = 0;
         for (Location loc : locations) {

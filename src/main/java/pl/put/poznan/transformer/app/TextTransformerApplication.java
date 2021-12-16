@@ -2,6 +2,7 @@ package pl.put.poznan.transformer.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import pl.put.poznan.transformer.buildings.Building;
 import pl.put.poznan.transformer.buildings.CompoundLocation;
 import pl.put.poznan.transformer.buildings.Room;
 import pl.put.poznan.transformer.buildings.Storey;
@@ -29,9 +30,11 @@ public class TextTransformerApplication {
         Storey storey1 = new Storey(2);
         storey1.add(room1);
         storey1.add(room2);
+        Building building1 = new Building(3);
+        building1.add(storey1);
 
         compound = new CompoundLocation();
-        compound.add(storey1);
+        compound.add(building1);
 
         SpringApplication.run(TextTransformerApplication.class, args);
     }

@@ -1,5 +1,7 @@
 package pl.put.poznan.transformer.buildings;
 
+import java.util.Vector;
+
 public class Room extends Location {
     private int     area;
     private int     capacity;
@@ -18,6 +20,12 @@ public class Room extends Location {
     public int getCapacity() { return capacity; }
     public int getLight()    { return light;    }
     public float getEating() { return eating;   }
+
+    public Vector<Integer> getLeafIDs() {
+        Vector<Integer> vec = new Vector<Integer>();
+        vec.add(this.id);
+        return vec;
+    }
 
     public void remove(int id) {}
 }
