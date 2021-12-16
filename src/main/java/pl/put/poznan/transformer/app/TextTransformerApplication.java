@@ -9,6 +9,7 @@ import pl.put.poznan.transformer.buildings.Storey;
 
 @SpringBootApplication(scanBasePackages = {"pl.put.poznan.transformer.rest"})
 public class TextTransformerApplication {
+    public static CompoundLocation compound;
     public static void main(String[] args) {
         Room room1 = new Room(
                 1,
@@ -29,7 +30,7 @@ public class TextTransformerApplication {
         storey1.add(room1);
         storey1.add(room2);
 
-        CompoundLocation compound = new CompoundLocation();
+        compound = new CompoundLocation();
         compound.add(storey1);
 
         SpringApplication.run(TextTransformerApplication.class, args);
