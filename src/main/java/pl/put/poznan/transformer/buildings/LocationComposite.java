@@ -13,13 +13,13 @@ public abstract class LocationComposite<T extends Location> extends Location{
         locations.add(loc);
     }
 
-    public T at(int id) {
+    public T at(int id) throws Exception {
         for (T location : locations) {
             if (location.getId() == id) {
                 return location;
             }
         }
-        return null;
+        throw new Exception("not found");
     }
 
     public Vector<Integer> getChildrenIDs() {
@@ -60,7 +60,7 @@ public abstract class LocationComposite<T extends Location> extends Location{
     public int getLight() {
         int total = 0;
         for (T loc : locations) {
-            total += loc.getCapacity();
+            total += loc.getLight();
         }
         return total;
     }
