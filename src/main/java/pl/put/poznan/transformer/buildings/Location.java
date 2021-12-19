@@ -1,8 +1,12 @@
 package pl.put.poznan.transformer.buildings;
 
-abstract public class Location {
+public abstract class Location implements LocINT{
     int     id;
     String  name;
+
+    public Location(int id){
+        this.id = id;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -10,15 +14,12 @@ abstract public class Location {
     public String getName() {
         return name;
     }
-    abstract public void remove(int id);
 
-    abstract public int     getArea();
-    abstract public int     getCapacity();
-    abstract public int     getLight();
-    abstract public float   getEating();
+    public int getId() {
+        return id;
+    }
 
-    public String toString()
-    {
-        return id + "(" + name + ") {" + "area:" + getArea() + " capacity:" + getCapacity() + " light:" + getLight() + " eating:" + getEating() + "}";
+    public void setId(int id) {
+        this.id = id;
     }
 }

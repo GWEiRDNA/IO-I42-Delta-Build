@@ -4,20 +4,20 @@ public class Room extends Location {
     private int     area;
     private int     capacity;
     private int     light;
-    private float   eating;
+    private float   heating;
+
 
     // @TODO: zabezpieczyc przed ujemnymi wartosciami
     public Room(int id, int area, int capacity, int light, float eating) {
-        super.id        = id;
+        super(id);
         this.area       = area;
         this.capacity   = capacity;
         this.light      = light;
-        this.eating     = eating;
+        this.heating     = eating;
     }
+
     public int getArea()     { return area;     }
     public int getCapacity() { return capacity; }
     public int getLight()    { return light;    }
-    public float getEating() { return eating;   }
-
-    public void remove(int id) {}
+    public float getHeating() { return heating;   }
 }
