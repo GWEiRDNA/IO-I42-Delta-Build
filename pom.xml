@@ -11,7 +11,7 @@
 
     <groupId>pl.put.poznan</groupId>
     <artifactId>building-info</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
 
 	<properties>
         <java.version>11</java.version>
@@ -76,7 +76,7 @@
 
 	<scm>
 		<developerConnection>scm:git:https://github.com/GWEiRDNA/IO-I42-Delta-Build.git </developerConnection>
-      <tag>v1.0</tag>
+      <tag>HEAD</tag>
   </scm>
 
 	<distributionManagement>
