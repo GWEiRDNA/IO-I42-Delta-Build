@@ -39,7 +39,7 @@ public abstract class LocationComposite<T extends Location> extends Location{
     }
 
     @Override
-    public int getArea() {
+    public double getArea() {
         int total = 0;
         for (T loc : locations) {
             total += loc.getArea();
@@ -48,7 +48,7 @@ public abstract class LocationComposite<T extends Location> extends Location{
     }
 
     @Override
-    public int getCapacity() {
+    public double getCapacity() {
         int total = 0;
         for (T loc : locations) {
             total += loc.getCapacity();
@@ -57,7 +57,7 @@ public abstract class LocationComposite<T extends Location> extends Location{
     }
 
     @Override
-    public int getLight() {
+    public double getLight() {
         int total = 0;
         for (T loc : locations) {
             total += loc.getLight();
@@ -66,7 +66,7 @@ public abstract class LocationComposite<T extends Location> extends Location{
     }
 
     @Override
-    public float getHeating() {
+    public double getHeating() {
         float total = 0;
         for (T loc : locations) {
             total += loc.getHeating();

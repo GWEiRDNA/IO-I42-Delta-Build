@@ -2,29 +2,29 @@ package pl.put.poznan.transformer.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import pl.put.poznan.transformer.buildings.CompoundLocation;
-import pl.put.poznan.transformer.buildings.Room;
-import pl.put.poznan.transformer.buildings.Storey;
+import pl.put.poznan.transformer.buildings.*;
 
 @SpringBootApplication(scanBasePackages = {"pl.put.poznan.transformer.rest"})
 public class TextTransformerApplication {
     public static CompoundLocation compound;
     public static void main(String[] args) {
-        Storey storey1 = new Storey(2);
+        LocationComposite storey1 = new Storey(2);
+        Location storey2 = new Storey(2);
         storey1.add(new Room(
                 2,
                 20,
                 30,
                 10,
-                20.2f
+                20.2
         ));
         storey1.add(new Room(
                 1,
                 20,
                 30,
                 10,
-                20.2f
+                20.2
         ));
+        storey1.add(storey2);
 
         compound = new CompoundLocation();
         compound.add(storey1);
