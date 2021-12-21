@@ -11,6 +11,9 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - uses: fregante/setup-git-user@v1
+    - name: Compile
+      run: |
+        mvn compile
     - name: Maven Release
       run: |
         mvn release:prepare release:perform
