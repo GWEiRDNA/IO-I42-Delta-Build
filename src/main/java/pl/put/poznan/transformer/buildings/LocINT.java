@@ -23,7 +23,7 @@ public interface LocINT {
     double     getLight();
 
     /**
-     * Returns the level of energy usage required for heating of the location.
+     * Returns the level of energy usage required for heating of the location
      * @return  <code>double</code>
      */
     double     getHeating();

@@ -24,7 +24,6 @@ public class BuildingsApplication {
                 10,
                 20.2
         ));
-        storey1.add(storey2);
 
         compound = new CompoundLocation();
         compound.add(storey1);
