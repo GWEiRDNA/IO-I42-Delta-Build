@@ -2,7 +2,7 @@ package pl.put.poznan.transformer.rest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
-import pl.put.poznan.transformer.app.TextTransformerApplication;
+import pl.put.poznan.transformer.app.BuildingsApplication;
 import pl.put.poznan.transformer.buildings.*;
 
 import java.util.ArrayList;
@@ -12,19 +12,19 @@ import java.util.LinkedHashMap;
 @RestController
 public class BuildingsController {
 
-    private static final Logger logger = LoggerFactory.getLogger(BuildingsController.class);
-
     private Response getArray(Integer[] address)
     {
         if(address.length == 0)
-            return new Response(TextTransformerApplication.compound);
+            return new Response(BuildingsApplication.compound);
         try {
-            LocationComposite curLocation = TextTransformerApplication.compound;
+
+            LocationComposite curLocation = BuildingsApplication.compound;
             int i=0;
             while (i < address.length-1) {
                 curLocation = (LocationComposite) curLocation.at(address[i++]);
             }
             return new Response(curLocation.at(address[i]));
+
         }catch (Exception e) {
             if(e.getClass().equals(ClassCastException.class))
                 return new Response("This location can't contain other locations");
@@ -37,13 +37,15 @@ public class BuildingsController {
         if(address.length == 0)
             return new Response("You can't remove main container");
         try {
-            LocationComposite curLocation = TextTransformerApplication.compound;
+
+            LocationComposite curLocation = BuildingsApplication.compound;
             int i=0;
             while (i < address.length-1) {
                 curLocation = (LocationComposite) curLocation.at(address[i++]);
             }
             curLocation.remove(address[i]);
             return new Response(curLocation);
+
         }catch (Exception e) {
             if(e.getClass().equals(ClassCastException.class))
                 return new Response("This location can't contain other locations");
@@ -100,7 +102,7 @@ public class BuildingsController {
                     throw new Exception("type not recognized: '"+type+"' posible types: room/storey/building");
             }
 
-            LocationComposite curLocation = TextTransformerApplication.compound;
+            LocationComposite curLocation = BuildingsApplication.compound;
 
             for (int i : address)
                 curLocation = (LocationComposite) curLocation.at(i);
@@ -113,6 +115,7 @@ public class BuildingsController {
                 ((Storey)curLocation).add((Room) location);
 
             return new Response(curLocation);
+
         }catch (Exception e) {
             if(e.getClass().equals(ClassCastException.class))
                 return new Response("This location can't contain that type of locations");
@@ -123,7 +126,7 @@ public class BuildingsController {
     private Response patchArray(Integer[] address, LinkedHashMap map)
     {
         try{
-            Location curLocation = TextTransformerApplication.compound;
+            Location curLocation = BuildingsApplication.compound;
 
             for (int i : address)
                 curLocation = ((LocationComposite) curLocation).at(i);
@@ -234,7 +237,6 @@ class Response
     public String getType() {
         return type;
     }
-
     public Object getObject() {
         return object;
     }

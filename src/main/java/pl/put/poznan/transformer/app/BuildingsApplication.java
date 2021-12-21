@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import pl.put.poznan.transformer.buildings.*;
 
 @SpringBootApplication(scanBasePackages = {"pl.put.poznan.transformer.rest"})
-public class TextTransformerApplication {
+public class BuildingsApplication {
     public static CompoundLocation compound;
     public static void main(String[] args) {
         LocationComposite storey1 = new Storey(2);
@@ -30,6 +30,6 @@ public class TextTransformerApplication {
         compound.add(storey1);
 
         System.out.println(compound.getArea());
-        SpringApplication.run(TextTransformerApplication.class, args);
+        SpringApplication.run(BuildingsApplication.class, args);
     }
 }
