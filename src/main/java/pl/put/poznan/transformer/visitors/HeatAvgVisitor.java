@@ -11,6 +11,12 @@ public class HeatAvgVisitor implements Visitor{
     private double capacity = 0;
 
     @Override
+    public void reset() {
+        heating = 0;
+        capacity = 0;
+    }
+
+    @Override
     public void visit(Room r) {
         heating += r.getHeating();
         capacity += r.getCapacity();
@@ -29,12 +35,7 @@ public class HeatAvgVisitor implements Visitor{
     }
 
     @Override
-    public void visit(CompoundLocation cl) {
-        heating += cl.getHeating();
-        capacity += cl.getCapacity();
-    }
-
-    public double getOutcome()
+    public Object getOutcome()
     {
         if(capacity == 0)
             return 0;

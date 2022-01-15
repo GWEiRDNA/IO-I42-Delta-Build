@@ -1,5 +1,6 @@
 package pl.put.poznan.transformer.visitors;
 
+import org.springframework.cglib.beans.BulkBean;
 import pl.put.poznan.transformer.buildings.Building;
 import pl.put.poznan.transformer.buildings.CompoundLocation;
 import pl.put.poznan.transformer.buildings.Room;
@@ -9,39 +10,44 @@ import java.util.ArrayList;
 
 public class HeatExceededVisitor implements Visitor{
 
-    private double limit = 0;
-    private double heating = 0;
-    private double capacity = 0;
-
-    private ArrayList<Room> out;
+    public static final double DEFAULT_LIMIT = 10;
+    private double limit = DEFAULT_LIMIT;
+    private ArrayList<Integer> out;
 
     public HeatExceededVisitor(double limit) {
         this.limit = limit;
-        out = new ArrayList<Room>();
+        out = new ArrayList<Integer>();
+    }
+
+    @Override
+    public void reset() {
+        out.clear();
     }
 
     @Override
     public void visit(Room r) {
         if(r.getHeating()/r.getCapacity() > limit)
-            out.add(r);
+            out.add(r.getId());
     }
 
     @Override
     public void visit(Storey s) {
-        heating += s.getHeating();
-        capacity += s.getCapacity();
+        for (int id : s.getChildrenIDs()){
+            try {visit(s.at(id));} catch (Exception e) {e.printStackTrace();}
+        }
     }
 
     @Override
     public void visit(Building b) {
-        heating += b.getHeating();
-        capacity += b.getCapacity();
+        for (int id : b.getChildrenIDs()){
+            try {visit(b.at(id));} catch (Exception e) {e.printStackTrace();}
+        }
     }
 
     @Override
-    public void visit(CompoundLocation cl) {
-        heating += cl.getHeating();
-        capacity += cl.getCapacity();
+    public Object getOutcome()
+    {
+        return out;
     }
 
     public void setLimit(double limit) {
@@ -50,12 +56,5 @@ public class HeatExceededVisitor implements Visitor{
 
     public double getLimit() {
         return limit;
-    }
-
-    public double getOutcome()
-    {
-        if(capacity == 0)
-            return 0;
-        return heating/capacity;
     }
 }

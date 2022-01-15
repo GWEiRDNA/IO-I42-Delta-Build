@@ -13,6 +13,12 @@ public class LightAvgVisitor implements Visitor{
     private double area = 0;
 
     @Override
+    public void reset() {
+        light = 0;
+        area = 0;
+    }
+
+    @Override
     public void visit(Room r) {
         light += r.getLight();
         area += r.getArea();
@@ -31,12 +37,7 @@ public class LightAvgVisitor implements Visitor{
     }
 
     @Override
-    public void visit(CompoundLocation cl) {
-        light += cl.getLight();
-        area += cl.getArea();
-    }
-
-    public double getOutcome()
+    public Object getOutcome()
     {
         if(area == 0)
             return 0;

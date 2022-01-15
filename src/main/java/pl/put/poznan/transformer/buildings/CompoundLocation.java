@@ -23,5 +23,5 @@ public class CompoundLocation extends LocationComposite<Location> {
     }
 
     @Override
-    public void accept(Visitor visitor) {visitor.visit(this);}
+    public void accept(Visitor visitor) {}
 }
