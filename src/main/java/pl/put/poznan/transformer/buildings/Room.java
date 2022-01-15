@@ -1,5 +1,7 @@
 package pl.put.poznan.transformer.buildings;
 
+import pl.put.poznan.transformer.visitors.Visitor;
+
 /**
  *  Room representation. Stored in Storeys. {@link Room}
  *  @see Storey
@@ -38,4 +40,6 @@ public class Room extends Location {
     public void        setCapacity(double capacity)    { this.capacity = capacity;}
     public void        setLight(double light)          { this.light = light;}
     public void        setHeating(double heating)      { this.heating = heating;}
+    @Override
+    public void accept(Visitor visitor) {visitor.visit(this);}
 }

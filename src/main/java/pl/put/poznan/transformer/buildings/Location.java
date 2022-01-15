@@ -1,5 +1,7 @@
 package pl.put.poznan.transformer.buildings;
 
+import pl.put.poznan.transformer.visitors.Visitor;
+
 /**
  * Location is the abstract base class for all locations.
  * This class implements <code>LocINT</code> which is crucial
@@ -35,5 +37,6 @@ public abstract class Location implements LocINT{
     public void setName(String name) {
         this.name = name;
     }
+    public abstract void accept(Visitor visitor);
 
 }

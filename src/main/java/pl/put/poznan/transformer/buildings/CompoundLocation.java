@@ -1,5 +1,7 @@
 package pl.put.poznan.transformer.buildings;
 
+import pl.put.poznan.transformer.visitors.Visitor;
+
 /**
  * Default storage for all types of locatations.
  * Based on {@link LocationComposite}
@@ -19,4 +21,7 @@ public class CompoundLocation extends LocationComposite<Location> {
     public CompoundLocation(int id){
         super(id);
     }
+
+    @Override
+    public void accept(Visitor visitor) {visitor.visit(this);}
 }

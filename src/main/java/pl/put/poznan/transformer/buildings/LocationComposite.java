@@ -110,7 +110,7 @@ public abstract class LocationComposite<T extends Location> extends Location{
         for (T loc : locations) {
             total += loc.getLight();
         }
-        return total/ locations.size();
+        return total;
     }
 
     /**
@@ -124,6 +124,6 @@ public abstract class LocationComposite<T extends Location> extends Location{
         for (T loc : locations) {
             total += loc.getHeating();
         }
-        return total/ locations.size();
+        return total;
     }
 }
