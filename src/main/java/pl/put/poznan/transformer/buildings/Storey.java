@@ -12,6 +12,7 @@ public class Storey extends LocationComposite<Room> {
     public Storey(int id) {
         super(id);
     }
+
     @Override
     public void accept(Visitor visitor) {visitor.visit(this);}
 }
