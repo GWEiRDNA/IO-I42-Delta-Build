@@ -1,5 +1,4 @@
 package pl.put.poznan.transformer.buildings;
-
 import pl.put.poznan.transformer.visitors.Visitor;
 
 /**
@@ -14,6 +13,14 @@ public class Room extends Location {
     private double     light;
     private double     heating;
 
+    // check the sign
+    private double     check(double var) {
+        if (var < 0) {
+            throw new IllegalArgumentException("Room values can't be negative.");
+        } else {
+            return var;
+        }
+    }
     /**
      *
      * @param id        id of the Room.
@@ -24,22 +31,21 @@ public class Room extends Location {
      */
     public Room(int id, double area, double capacity, double light, double heating) {
         super(id);
-        if(area <0 || capacity <0 || light<0 || heating <0)
-            throw new IllegalArgumentException("Area, Capacity, Light and Heating can't be negative.");
-        this.area       = area;
-        this.capacity   = capacity;
-        this.light      = light;
-        this.heating    = heating;
+        this.area       = check(area);
+        this.capacity   = check(capacity);
+        this.light      = check(light);
+        this.heating    = check(heating);
     }
 
     public double      getArea()       { return area;     }
     public double      getCapacity()   { return capacity; }
     public double      getLight()      { return light;    }
     public double      getHeating()    { return heating;   }
-    public void        setArea(double area)            { this.area = area;}
-    public void        setCapacity(double capacity)    { this.capacity = capacity;}
-    public void        setLight(double light)          { this.light = light;}
-    public void        setHeating(double heating)      { this.heating = heating;}
+    public void        setArea(double area)            { this.area      = check(area);}
+    public void        setCapacity(double capacity)    { this.capacity  = check(capacity);}
+    public void        setLight(double light)          { this.light     = check(light);}
+    public void        setHeating(double heating)      { this.heating   = check(heating);}
+
     @Override
     public void accept(Visitor visitor) {visitor.visit(this);}
 }
